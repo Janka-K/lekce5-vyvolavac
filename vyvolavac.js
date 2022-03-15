@@ -31,15 +31,22 @@ let tazenaJmena = [];
 
 function tahnoutJmeno() {
     if (jmena.length === 0) {
-        return;
+        return; // return bez hodnoty ukonci funkci
     }
 
     // Generujeme náhodný index
+    let winnerIndex = Math.floor((Math.random() * jmena.length));
 
     // Získáme výherní jméno na patřičném indexu
 
+    let winnerName = jmena[winnerIndex];
+
     // Vyřadíme vylosované jméno z osudí
 
+    let deleteWinnerName = jmena.splice(winnerIndex,1);
+
     // Výherní jméno si uložíme do pole k ostatním výherním
+
+    tazenaJmena.push(winnerName);
     
 }
