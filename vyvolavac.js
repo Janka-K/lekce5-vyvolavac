@@ -29,13 +29,15 @@ let jmena = [
 
 let tazenaJmena = [];
 
+let count = 0;
+
 function tahnoutJmeno() {
     if (jmena.length === 0) {
         return; // return bez hodnoty ukonci funkci
     }
 
     // Generujeme náhodný index
-    let winnerIndex = Math.floor((Math.random() * jmena.length));
+    let winnerIndex = Math.floor(Math.random() * jmena.length);
 
     // Získáme výherní jméno na patřičném indexu
 
@@ -47,6 +49,19 @@ function tahnoutJmeno() {
 
     // Výherní jméno si uložíme do pole k ostatním výherním
 
-    tazenaJmena.push(winnerName);
+    //tazenaJmena.push(winnerName);
+
+    tazenaJmena.unshift(winnerName);
+
+
+
+    let winner = document.querySelector("#vyherka");
+    winner.textContent = winnerName;
+
+
+    let list = document.querySelector("#seznam");
+    list.textContent = tazenaJmena;
     
+    let winnerCount = document.querySelector("#number");
+    winnerCount.textContent = tazenaJmena.length;
 }
