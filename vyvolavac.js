@@ -65,3 +65,25 @@ function tahnoutJmeno() {
     let winnerCount = document.querySelector("#number");
     winnerCount.textContent = tazenaJmena.length;
 }
+
+
+//je potreba vyrobit resetovaci tlacitko vyvolavace
+
+function reset(element){
+    jmena.push(element);
+    //tazenaJmena.splice(element,tazenaJmena.length);
+}
+
+
+
+function resetButton(index){
+    count = 0;
+    tazenaJmena.forEach(reset);
+    tazenaJmena.splice(index,tazenaJmena.length);
+    if (tazenaJmena.lenght === 0){
+        return;
+    }
+    let score = document.querySelector("#number").innerHTML = count;
+    document.querySelector("#seznam").textContent = tazenaJmena;
+    document.querySelector("#vyherka").textContent = tazenaJmena;
+}
