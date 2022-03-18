@@ -1,36 +1,36 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Zkoušení u tabule</title>
-	<link rel="stylesheet" href="style.css">
-</head>
-<body>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Zkoušení u tabule</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="obsah">
+      <h1>Zkoušení u tabule</h1>
 
-	<div class="obsah">
+      <div id="vyherka"></div>
 
-		<h1>Zkoušení u tabule</h1>
+      <button class="tlacitko" onclick="selectName()">
+        Vyvolej náhodnou studentku
+      </button>
 
-		<div id="vyherka"></div>
+      <h3>Počet vyvolaných holek:</h3>
+      <span id="number">0</span>
 
-		<button class="tlacitko" onclick="tahnoutJmeno()">Vyvolej náhodnou studentku</button>
+      <h2>Předchozí oběti:</h2>
 
-		
+      <div id="seznam">Seznam vyvolaných</div>
+    </div>
 
-		<h2>Předchozí oběti:</h2>
+    <div class="reset">
+      <button onclick="resetButton()" class="tlacitko">
+        Resetuj vyvolávání
+      </button>
+    </div>
 
-		<div id="seznam">Seznam vyvolaných</div>
-
-		<h3>Počet vyvolaných holek:</h3>
-		<div id="number">0</div>
-	
-	</div>
-	<div>
-	<button onclick="resetButton()" class="tlacitko">Resetuj vyvolávání</button>
-</div>
-	<script src="vyvolavac.js"></script>
-
-</body>
+    <script src="vyvolavac.js"></script>
+  </body>
 </html>

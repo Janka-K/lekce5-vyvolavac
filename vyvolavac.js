@@ -1,89 +1,84 @@
-let jmena = [
-    "Markéta",
-    "Kateřina",
-    "Júlia",
-    "Lucie",
-    "Aneta",
-    "Veronika",
-    "Petra",
-    "Olga",
-    "Naďa",
-    "Nikola",
-    "Eva",
-    "Anísa",
-    "Terezia",
-    "Diana",
-    "Anna",
-    "Iva",
-    "Denisa",
-    "Zuzana",
-    "Jana",
-    "Martina",
-    "Lenka",
-    "Iveta",
-    "Pavla",
-    "Lucie",
-    "Kamila",
-    "Soňa"
+let names = [
+  "Markéta",
+  "Kateřina",
+  "Júlia",
+  "Lucie",
+  "Aneta",
+  "Veronika",
+  "Petra",
+  "Olga",
+  "Naďa",
+  "Nikola",
+  "Eva",
+  "Anísa",
+  "Terezia",
+  "Diana",
+  "Anna",
+  "Iva",
+  "Denisa",
+  "Zuzana",
+  "Jana",
+  "Martina",
+  "Lenka",
+  "Iveta",
+  "Pavla",
+  "Lucie",
+  "Kamila",
+  "Soňa",
 ];
 
-let tazenaJmena = [];
+let selectedNames = [];
 
-let count = 0;
+let originalContent = document.querySelector("#seznam").textContent;
 
-function tahnoutJmeno() {
-    if (jmena.length === 0) {
-        return; // return bez hodnoty ukonci funkci
-    }
+let countNames = 0;
 
-    // Generujeme náhodný index
-    let winnerIndex = Math.floor(Math.random() * jmena.length);
+function selectName() {
+  if (names.length === 0) {
+    return; // return bez hodnoty ukonci funkci
+  }
 
-    // Získáme výherní jméno na patřičném indexu
+  // Generujeme náhodný index
+  let winnerIndex = Math.floor(Math.random() * names.length);
 
-    let winnerName = jmena[winnerIndex];
+  // Získáme výherní jméno na patřičném indexu
 
-    // Vyřadíme vylosované jméno z osudí
+  let winnerName = names[winnerIndex];
 
-    let deleteWinnerName = jmena.splice(winnerIndex,1);
+  // Vyřadíme vylosované jméno z osudí
 
-    // Výherní jméno si uložíme do pole k ostatním výherním
+  let deleteWinnerName = names.splice(winnerIndex, 1);
 
-    //tazenaJmena.push(winnerName);
+  // Výherní jméno si uložíme do pole k ostatním výherním
 
-    tazenaJmena.unshift(winnerName);
+  //tazenaJmena.push(winnerName);
 
+  selectedNames.unshift(winnerName);
 
+  let winner = document.querySelector("#vyherka");
+  winner.textContent = winnerName;
 
-    let winner = document.querySelector("#vyherka");
-    winner.textContent = winnerName;
+  let list = document.querySelector("#seznam");
+  list.textContent = selectedNames;
 
-
-    let list = document.querySelector("#seznam");
-    list.textContent = tazenaJmena;
-    
-    let winnerCount = document.querySelector("#number");
-    winnerCount.textContent = tazenaJmena.length;
+  let winnerCount = document.querySelector("#number");
+  winnerCount.textContent = selectedNames.length;
 }
-
 
 //je potreba vyrobit resetovaci tlacitko vyvolavace
 
-function reset(element){
-    jmena.push(element);
-    //tazenaJmena.splice(element,tazenaJmena.length);
+function nameRemove(element) {
+  names.push(element);
 }
 
-
-
-function resetButton(index){
-    count = 0;
-    tazenaJmena.forEach(reset);
-    tazenaJmena.splice(index,tazenaJmena.length);
-    if (tazenaJmena.lenght === 0){
-        return;
-    }
-    let score = document.querySelector("#number").innerHTML = count;
-    document.querySelector("#seznam").textContent = tazenaJmena;
-    document.querySelector("#vyherka").textContent = tazenaJmena;
+function resetButton(index) {
+  countNames = 0;
+  selectedNames.forEach(nameRemove);
+  selectedNames.splice(index, selectedNames.length);
+  if (selectedNames.lenght === 0) {
+    return;
+  }
+  document.querySelector("#number").innerHTML = countNames;
+  document.querySelector("#seznam").textContent = originalContent;
+  document.querySelector("#vyherka").textContent = selectedNames;
 }
