@@ -65,16 +65,16 @@ function selectName() {
   winnerCount.textContent = selectedNames.length;
 }
 
-//je potreba vyrobit resetovaci tlacitko vyvolavace
+
 
 function nameRemove(element) {
   names.push(element);
 }
 
-function resetButton(index) {
+function resetButton() {
   countNames = 0;
   selectedNames.forEach(nameRemove);
-  selectedNames.splice(index, selectedNames.length);
+  selectedNames.splice(0,selectedNames.length);
   if (selectedNames.lenght === 0) {
     return;
   }
